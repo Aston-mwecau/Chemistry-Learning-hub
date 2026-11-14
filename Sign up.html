@@ -1,0 +1,192 @@
+<!Doctype html >
+<html>
+<head>
+  <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+   
+    body{
+      background-color:  #333;
+    }
+    .signup-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 60%;
+      margin-left: 250px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type=text], input[type=email], input[type=password] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .toggle {
+      cursor: pointer;
+      font-size: 12px;
+      color: #007BFF;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+    .success {
+      color: green;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .google-btn {
+      background: #DB4437;
+      margin-top: 10px;
+    }
+    .policy {
+      font-size: 12px;
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+    </head>
+ <body>
+    <header>
+  
+  <h1 style="color: skyblue;">CHEMISTRY LEARNING HUB</h1>
+</header>
+
+    <div class="nav">
+        <label id="logo">
+<div class="logo">
+    <img src="logo.png" alt="CLB Logo">
+
+  </div>
+        </label>
+       <li> <a href="home.html"> HOME</a></li>
+        <li class="dropdown">
+      <a href="Topics.html">TOPICS ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="Form one.html">form one</a></li>
+        <li><a href="Form two.html">form two</a></li>
+        <li><a href="Form three.html">form three</a></li>
+        <li><a href="Form four.html">form four</a></li>
+      </ul>
+       <li> <a href="Resources.html" >RESOURCES</a></li>
+       <li> <a href="About us.html">ABOUT US</a></li>
+       <li> <a href="Articles.html">ARTICLES</a></li>
+       <li> <a href="Contact us.html">CONTACT US</a></li>
+      <li> <a href="Sign up.html"  id = "active">SIGN UP</a></li>
+</div>
+  </div>
+
+  <div class="main-content">
+
+  <div class="signup-container">
+    <h2>Create your  account  now</h2>
+    <form id="signupForm" action="signup.php" method="POST">
+  <input type="text" id="name" name="name" placeholder="Full Name" required>
+  <input type="email" id="email" name="email" placeholder="Email Address" required>
+  
+  <input type="password" id="password" name="password" placeholder="Password" required>
+  <span class="toggle" onclick="togglePassword()">Show/Hide Password</span>
+  
+  <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+  <div id="errorMessage" class="error"></div>
+  
+  <button type="submit">Sign Up</button>
+</form>
+
+    <div id="successMessage" class="success"></div>
+    <div class="policy">
+      By signing up, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorMessage = document.getElementById("errorMessage");
+
+      errorMessage.textContent = "";
+
+      if (password.length < 8) {
+        e.preventDefault();
+        errorMessage.textContent = "Password must be at least 8 characters.";
+        return;
+      }
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        errorMessage.textContent = "Passwords do not match.";
+        return;
+      }
+      // ✅ If validation passes, allow normal submission to signup.php
+    });
+  </script>
+
+  </div>
+  <footer>
+  <div class="footer-container">
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Contact Information</h3>
+      <p>Email: <a href="mailto:chemistryhub@gmail.com">chemistryhub@gmail.com</a></p>
+      <p>Phone: <a href="tel:+255752607866">+255 613587166</a></p>
+      <p>Address: MOSHI KILIMANJARO </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Topics.html">Topics</a></li>
+        <li><a href="Resources.html">Resources</a></li>
+        <li><a href="Contact us.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        </a>
+        <a href="https://wa.me/255712345678" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.facebook.com" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Chemistry Learning Hub | All Rights Reserved</p>
+  </div>
+</footer>
+ </body>
+</html>
